@@ -12,13 +12,16 @@ const App = () => {
   };
   const handleUserSubmit = (event) => {
     event.preventDefault();
-    console.log("Hey you, User! Why are you clicking me? >:[ ");
+    setTitle(
+      `Are you by any chance ${formData.firstName} ${formData.lastName}?`
+    );
+    setFormData({ firstName: "", lastName: "" });
   };
 
   return (
     <>
       <h2>{title}</h2>
-      <form onClick={handleUserSubmit}>
+      <form onSubmit={handleUserSubmit}>
         <label htmlFor="firstName">First Name: </label>
         <input
           id="firstName"
